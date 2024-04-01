@@ -7,6 +7,8 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 import BooksTable from '../components/home/BooksTable';
 import BooksCard from '../components/home/BooksCard';
+import backgroundImage from '../../images/bookimage.jpg';
+
 
 const Home = () => {
     const [books, setBooks] = useState([]);
@@ -27,25 +29,33 @@ const Home = () => {
             })
     }, []);
     return (
-        <div className='p-4'>
-            <div className='flex justify-center items-center gap-x-4'>
+        <div 
+        className='p-4'
+        style={{
+            backgroundImage: `linear-gradient(rgba(0, 0 , 0, 0.8), rgba(0, 0 , 0, 0.8)), url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+        }}
+        >
+            <div className='flex justify-end items-center gap-x-4'>
                 <button
-                    className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
+                    className='bg-white bg-opacity-50 hover:bg-white px-4 py-1 rounded-lg'
                     onClick={() => setShowType('table')}
                 >
-                    Table
+                    Table View
                 </button>
                 <button
-                    className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
+                    className='bg-white bg-opacity-50 hover:bg-white px-4 py-1 rounded-lg'
                     onClick={() => setShowType('card')}
                 >
-                    Card
+                    Card View
                 </button>
             </div>
             <div className='flex justify-between items-center'>
-                <h1 className='text-3xl my-8'>BookList</h1>
+                <h1 className='text-3xl my-8 text-white font-bold'>BookList</h1>
                 <Link to='/books/create'>
-                    <MdOutlineAddBox className='text-sky-800 text-4xl' />
+                    <MdOutlineAddBox className='text-white opacity-50 text-4xl' />
                 </Link>
             </div>
             {loading ? <Spinner /> : showType === 'table' ? ( <BooksTable books={books} />) : ( <BooksCard books={books} />)}
