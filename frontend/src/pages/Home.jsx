@@ -32,7 +32,7 @@ const Home = () => {
         <div 
         className='p-4'
         style={{
-            backgroundImage: `linear-gradient(rgba(0, 0 , 0, 0.8), rgba(0, 0 , 0, 0.8)), url(${backgroundImage})`,
+            backgroundImage: `linear-gradient(rgba(0, 0 , 0, 0.9), rgba(0, 0 , 0, 0.8)), url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

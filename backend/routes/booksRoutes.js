@@ -9,7 +9,8 @@ router.post('/', async (request, response) => {
         if (
             !request.body.title ||
             !request.body.author ||
-            !request.body.publishYear
+            !request.body.publishYear||
+            !request.body.synopsis
         ) {
             return response.status(400).send({
                 message: 'send all the required fields'
@@ -18,7 +19,8 @@ router.post('/', async (request, response) => {
         const newBook = {
             title: request.body.title,
             author: request.body.author,
-            publishYear: request.body.publishYear
+            publishYear: request.body.publishYear,
+            synopsis: request.body.synopsis
         };
 
         const book = await Book.create(newBook);
